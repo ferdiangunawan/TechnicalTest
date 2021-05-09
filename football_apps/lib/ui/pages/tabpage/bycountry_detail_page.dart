@@ -35,7 +35,7 @@ class _ByCountryDetailPageState extends State<ByCountryDetailPage> {
                       } else {
                         return Column(
                           children: [
-                            SizedBox(height: 400),
+                            SizedBox(height: 200),
                             Center(child: loadingIndicator)
                           ],
                         );
@@ -57,9 +57,13 @@ class _ByCountryDetailPageState extends State<ByCountryDetailPage> {
                         Get.back();
                       },
                       child: Icon(Icons.arrow_back_ios, color: Colors.black)),
-                  Text(
-                    'Club di negara ${widget.countryName}',
-                    style: blackFontStyle,
+                  SizedBox(
+                    width: 300,
+                    child: Text(
+                      'Club di negara ${widget.countryName}',
+                      style: blackFontStyle,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   )
                 ],
               ),

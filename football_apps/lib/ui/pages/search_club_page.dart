@@ -22,7 +22,7 @@ class _SearchClubPageState extends State<SearchClubPage> {
               children: [
                 Column(
                   children: [
-                    SizedBox(height: 60),
+                    SizedBox(height: 100),
                     isSearch
                         ? BlocBuilder<SoccerBloc, SoccerState>(
                             builder: (_, searchState) {
@@ -42,77 +42,85 @@ class _SearchClubPageState extends State<SearchClubPage> {
                             } else {
                               return Column(
                                 children: [
-                                  SizedBox(height: 400),
+                                  SizedBox(height: 200),
                                   Center(child: loadingIndicator)
                                 ],
                               );
                             }
                           })
-                        : Center(child: Image.asset('assets/search_icon.jpg'))
+                        : Column(
+                            children: [
+                              SizedBox(height: 200),
+                              Image.asset('assets/search_icon.jpg'),
+                            ],
+                          )
                   ],
                 ),
               ],
             ),
           )),
           SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: edge),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Pencarian Club',
-                      style: blackFontStyle.copyWith(
-                          fontSize: 22, fontWeight: FontWeight.w500)),
-                  SizedBox(height: 10),
-                  Container(
-                    padding: EdgeInsets.only(bottom: 10),
-                    color: Colors.white,
-                    child: Row(
-                      children: [
-                        Container(
-                          color: Colors.white,
-                          width: MediaQuery.of(context).size.width * .75,
-                          child: TextField(
-                              cursorColor: Colors.black,
-                              controller: searchController,
-                              decoration: InputDecoration(
-                                  isDense: true,
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: colorAccent),
-                                      borderRadius: BorderRadius.circular(8)),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Colors.black),
-                                      borderRadius: BorderRadius.circular(8)),
-                                  hintStyle: blackFontStyle.copyWith(
-                                      color: Colors.grey),
-                                  contentPadding: EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 10),
-                                  hintText: 'Search Club')),
-                        ),
-                        SizedBox(width: 6),
-                        GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                isSearch = true;
-                              });
-                              context
-                                  .read<SoccerBloc>()
-                                  .add(SearchClub(searchController.text));
-                            },
-                            child: Container(
-                                width: 45,
-                                height: 45,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color: Colors.amberAccent),
-                                child: Icon(Icons.search,
-                                    size: 30, color: Colors.lightBlue)))
-                      ],
+            child: Container(
+              height: 100,
+              color: Colors.white,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: edge),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Pencarian Club',
+                        style: blackFontStyle.copyWith(
+                            fontSize: 22, fontWeight: FontWeight.w500)),
+                    SizedBox(height: 10),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 10),
+                      color: Colors.white,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 250,
+                            child: TextField(
+                                cursorColor: Colors.black,
+                                controller: searchController,
+                                decoration: InputDecoration(
+                                    isDense: true,
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: colorAccent),
+                                        borderRadius: BorderRadius.circular(8)),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.black),
+                                        borderRadius: BorderRadius.circular(8)),
+                                    hintStyle: blackFontStyle.copyWith(
+                                        color: Colors.grey),
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
+                                    hintText: 'Search Club')),
+                          ),
+                          SizedBox(width: 6),
+                          GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isSearch = true;
+                                });
+                                context
+                                    .read<SoccerBloc>()
+                                    .add(SearchClub(searchController.text));
+                              },
+                              child: Container(
+                                  width: 45,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: Colors.amberAccent),
+                                  child: Icon(Icons.search,
+                                      size: 30, color: Colors.lightBlue)))
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

@@ -2,7 +2,6 @@ import "dart:math";
 
 void main() {
   var x = 0;
-  var y = 0;
   var numberList = [6, 8, 1, 4, 7, 2];
 
 // Total
@@ -24,7 +23,7 @@ void main() {
   //Nilai paling besar ke-3
   numberList.sort((b, a) => a.compareTo(b));
 
-  y = numberList[2];
+  x = numberList[2];
 
-  print("Nilai paling besar ke-3 : ${y}");
+  print("Nilai paling besar ke-3 : ${x}");
 }

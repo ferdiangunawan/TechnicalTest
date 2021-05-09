@@ -34,7 +34,7 @@ class _ByCountryPageState extends State<ByCountryPage> {
             } else {
               return Column(
                 children: [
-                  SizedBox(height: 400),
+                  SizedBox(height: 200),
                   Center(child: loadingIndicator)
                 ],
               );

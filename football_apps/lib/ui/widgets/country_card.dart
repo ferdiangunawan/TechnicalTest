@@ -30,8 +30,15 @@ class CountryCard extends StatelessWidget {
           children: [
             Image.asset(image!, width: 30, fit: BoxFit.contain),
             SizedBox(width: 16),
-            Text(name!,
-                style: blackFontStyle.copyWith(fontSize: 14), maxLines: 2)
+            SizedBox(
+              width: 150,
+              child: Text(
+                name!,
+                style: blackFontStyle.copyWith(fontSize: 14),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            )
           ],
         ),
       ),

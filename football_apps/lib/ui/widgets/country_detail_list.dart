@@ -21,7 +21,7 @@ class CountryList extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           SizedBox(
-            width: 300,
+            width: 200,
             child: Text(
               byCountry!.name!,
               style: blackFontStyle,

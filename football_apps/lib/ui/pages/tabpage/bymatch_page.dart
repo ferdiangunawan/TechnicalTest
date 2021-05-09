@@ -37,7 +37,7 @@ class _ByMatchPageState extends State<ByMatchPage> {
           } else {
             return Column(
               children: [
-                SizedBox(height: 400),
+                SizedBox(height: 200),
                 Center(child: loadingIndicator)
               ],
             );
