@@ -20,6 +20,7 @@ class BottomCustomNavBar extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 onTap!(0);
+                context.read<SoccerBloc>().add(GetLeaguesName());
               },
               child: Icon(Icons.home,
                   size: 32,
